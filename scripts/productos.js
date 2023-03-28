@@ -1,9 +1,11 @@
 let data;
 let arreglo = [];
 let items;
+let urlProducto = "https://slifer.bsite.net/td-producto"
 const contenedorProductos = document.querySelector('.contenedorCards');
 
-const x = fetch("https://slifer.bsite.net/td-producto",{
+
+const prodFetch = fetch("https://slifer.bsite.net/td-producto",{
     method:"GET",
     headers:{
         "Content-Type":"application/json"
@@ -23,33 +25,34 @@ const x = fetch("https://slifer.bsite.net/td-producto",{
     // .catch(error =>{
     //     console.log(error);
     // })
+fetchMethod();
 
 async function fetchMethod(){
-    let respuesta = await x;
+    let respuesta = await prodFetch;
     data = await respuesta.json();
     const filtrado = data.filter(variable => variable.idSucursal == 9);
-    const items = filtrado.map(prod => new Producto(prod.nombre, prod.descripcion, prod.precio, prod.idCategoria, prod.stock, prod.imagen, prod.etiqueta, prod.idSucursal));
+    const items = filtrado.map(prod => new Producto(prod.nombre, prod.descripcion, prod.precio, prod.idCategoria, prod.stock, prod.link, prod.etiqueta, prod.idSucursal));
     console.log(items);
     const RellenarProductos = (items) => { 
         items.forEach((producto) => {
-            const { nombre, descripcion, precio, idCategoria, stock, imagen, etiqueta} = producto;
+            const { nombre, descripcion, precio, idCategoria, stock, link, etiqueta} = producto;
             const div = document.createElement('div');
             div.classList = 'col g-5 hidden';
             div.innerHTML = `
             <div class="card">
-                <img src="${"."+imagen}" class="card-img-top" alt="Productos" />
+                <img src="${link}" class="card-img-top" alt="Productos" />
                 <div class="card-body">
                     <h5 class="card-title card__name">${nombre}</h5>
                     <p class="categoria_prod">Categoria: ${idCategoria}</p>
                     <p class="card-text card__description">${descripcion}</p>
-                    <p class="card-text card__etiqueta">${etiqueta}</p>
-                    <p class="price_producto">${precio}</p>
-                    <label class="form-label" for="cantProducto">Cantidad:<input type="number" value = "1" class="form-control" min="0" /></label>
-                    <p class="stock" value="${stock}" hidden>${stock}</p>
+                    <p class="card-text card__etiqueta">Etiquetas: ${etiqueta}</p>
+                    <p class="price_producto">Precio: $${precio}</p>
+                    <p class="stock" value="${stock}">Stock disponible: ${stock}</p>
+                    <div class="btnAdmin">
+                        <ion-icon name="create-outline"></ion-icon>
+                        <ion-icon name="trash-outline"></ion-icon>
                     </div>
-                <div class="card__end">
-                    <a href="#" class="button--secondary button--card">Agregar al Carro</a>
-                </div>
+                    </div>
             </div>
             `;
             contenedorProductos.appendChild(div);
@@ -61,30 +64,43 @@ async function fetchMethod(){
         }
         
         const cards = document.querySelectorAll('.card');
-//     class Producto {
-//         constructor(nombre, descripcion, precio, categoria, stock, imagen, etiqueta){
-//             this.nombre = nombre;
-//             this.descripcion = descripcion;
-//             this.precio = precio;
-//             this.categoria = categoria;
-//             this.stock = stock;
-//             this.imagen = imagen;
-//             this.etiqueta = etiqueta;
-    
-//     }
-// }
 }
-fetchMethod();
+
+async function modificarProductos(modificarID) {
+    freno == true;
+    if (freno == false) {
+    await fetch(urlProducto, {
+        method: 'PUT',   
+        mode: 'cors', 
+        cache: 'no-cache',
+        credencials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({
+            "id": modificarID,
+            "nombre": "WACOM ONE 13 CREATIVE PEN DISPLAY",
+            "precio": 374990,
+            "link": "../img/p01.jpg",
+            "stock": 7,
+            "etiqueta": "tableta digital wacom arte tecno escritorio profesional Hola!",
+            "descripcion": "una tableta digitalizadora con una pantalla de 13 pulgadas y lápiz digital que permite a los usuarios dibujar y crear arte digital.",
+            "idCategoria": 5,
+            "idSucursal": 9
+        })
+    })}
+}
+// modificarProductos(1043);
 
 class Producto {
-    constructor(nombre, descripcion, precio, idCategoria, stock, imagen, etiqueta, idSucursal){
+    constructor(nombre, descripcion, precio, idCategoria, stock, link, etiqueta, idSucursal){
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.precio = precio;
             this.idCategoria = idCategoria;
             this.stock = stock;            
             this.etiqueta = etiqueta;
-            this.imagen = imagen;
+            this.link = link;
             this.idSucursal = idSucursal;
             }}
 
