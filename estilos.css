@@ -1,0 +1,20 @@
+
+.botones{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+ion-icon{
+    width: 2em;
+    height: 2em;
+}
+
+.borrar{
+    color: blue;
+}
+
+.borrar:hover{
+    color: rgb(18, 104, 104);
+}
+
