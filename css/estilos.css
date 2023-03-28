@@ -103,16 +103,15 @@ h2{
 }
 
 /*Cards*/
-
 img {
     max-width: 100%;
     height: auto;
 }
-  
+
 .wrapper--green {
     background-color: rgba(0, 175, 145, 0.1);
 }
-  
+
 .card__row {
     margin: 0rem 2rem 2rem;
 }
@@ -130,12 +129,28 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-  
+}  
 .price_producto {
     padding: 1em 1em 1em 1em;
     text-align: center;
     font-size: 100%;
     font-weight: 700;
     color: #05d481;
-  }
+}
+/*Footer*/
+.footer {
+    background-color: #686868;
+    font-weight: 300;
+    text-align: center;
+    padding: 2em 0;
+    flex-direction: column;
+}
+.footer__listgroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1em;
+    color: white;
+    font-weight: 400;
+}
