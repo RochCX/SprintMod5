@@ -35,6 +35,8 @@ async function fetchMethod(){
     const filtrado = data.filter(variable => variable.idSucursal == 9);
     const items = filtrado.map(prod => new Producto(prod.nombre, prod.descripcion, prod.precio, prod.idCategoria, prod.stock, prod.link, prod.etiqueta, prod.idSucursal, prod.id));
     console.log(items);
+    items.forEach(elem =>
+        arreglo.push(elem));
     const RellenarProductos = (items) => { 
         items.forEach((producto) => {
             const { nombre, descripcion, precio, idCategoria, stock, link, etiqueta, id} = producto;
@@ -54,7 +56,7 @@ async function fetchMethod(){
 
                 <div class = "botones">
                 
-                    <a href="./editarProducto.html">
+                <a href="./editarProducto.html">
                         <ion-icon name="create-outline" class ="editar" onclick = "editarProductoo(${id})"></ion-icon>
 
                     </a>
@@ -73,6 +75,7 @@ async function fetchMethod(){
         }
         
         const cards = document.querySelectorAll('.card');
+        
 }
 
 async function modificarProductos(modificarID) {
@@ -118,35 +121,63 @@ class Producto {
 function borrarProducto(ide){
     console.log(ide);
 }
-
-
-function editarProductoo(ide){
-    idProducto = ide;
-    // localStorage.setItem('idProducto', idProducto);
-
-    nombreProducto = document.querySelector('.nombreProducto');
-    descripcionProducto = document.querySelector('.descripcionProducto');
-
-
-    const ed = fetch("https://slifer.bsite.net/td-producto",{
-    method:"GET",
-    headers:{
-        "Content-Type":"application/json"
-    },
-    })
-
-    async function editar(){
-        let respuesta = await ed;
-        prod = await respuesta.json();
-        const filtradoProd = prod.filter(variable => variable.id == ide);
-        console.log(filtradoProd);
-
-
+async function editarProductoo(ide){
+    await fetchMethod;
+    let objFinder = arreglo.find(elemento => elemento.id == ide)
+    localStorage.setItem("modificarEste", JSON.stringify(objFinder));
+    // setTimeout(function(){
+    //     console.log("Espera");
+    // }, 3000);
+    
     }
-
-    editar(ide);
-
+async function actualizarMod(){
+    await editarProductoo;
+    const miObjetoGuardado = localStorage.getItem("modificarEste")
+    const miObjeto = JSON.parse(miObjetoGuardado);
+    console.log(miObjeto);
+    let textoNombre = document.getElementById("esto1")
+    console.log(textoNombre);
+    let textoProducto = document.getElementById("esto2");
+    textoNombre.value = miObjeto.nombre;
+    textoProducto.value = miObjeto.descripcion;
 }
+
+
+// async function editarProductoo(ide){
+//     idProducto = ide;
+//     var objFind = items.filter(variable => variable.id == ide);
+//     console.log(objFind);
+//     var stringOBJ = JSON.stringify(objFind);
+//     localStorage.setItem("modProducto",stringOBJ);
+// }
+
+// function editarProductoo(ide){
+//     idProducto = ide;
+//     // localStorage.setItem('idProducto', idProducto);
+
+//     nombreProducto = document.querySelector('.nombreProducto');
+//     descripcionProducto = document.querySelector('.descripcionProducto');
+
+
+//     const ed = fetch("https://slifer.bsite.net/td-producto",{
+//     method:"GET",
+//     headers:{
+//         "Content-Type":"application/json"
+//     },
+//     })
+
+//     async function editar(){
+//         let respuesta = await ed;
+//         prod = await respuesta.json();
+//         const filtradoProd = prod.filter(variable => variable.id == ide);
+//         console.log(filtradoProd);
+
+
+//     }
+
+//     editar(ide);
+
+// }
 
 
 

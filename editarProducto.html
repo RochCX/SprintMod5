@@ -5,16 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Producto</title>
+    
 </head>
 <body>
+    <script>
+        window.addEventListener('load', function() {
+        console.log('La página ha cargado completamente');
+        actualizarMod();
+        });
+    </script>
     
     <form action="">
 
         <label for="">
-            <input type="text" class="nombreProducto">Nombre
+            <input type="text" id="esto1" class="nombreProducto">Nombre
         </label>
         <label for="">
-            <input type="text" class="descripcionProducto">Descripcion
+            <input type="text" id="esto2" class="descripcionProducto">Descripcion
         </label>
         <label for="">
             <input type="text">id
@@ -22,11 +29,11 @@
 
 
 
-
+<script src="scripts/productos.js"></script>
     </form>
 
 
 
-
-</body>
+        
+    </body>
 </html>
