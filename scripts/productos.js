@@ -3,6 +3,8 @@ let arreglo = [];
 let items;
 const contenedorProductos = document.querySelector('.contenedorCards');
 
+let idProducto;
+
 const x = fetch("https://slifer.bsite.net/td-producto",{
     method:"GET",
     headers:{
@@ -28,67 +30,94 @@ async function fetchMethod(){
     let respuesta = await x;
     data = await respuesta.json();
     const filtrado = data.filter(variable => variable.idSucursal == 9);
-    const items = filtrado.map(prod => new Producto(prod.nombre, prod.descripcion, prod.precio, prod.idCategoria, prod.stock, prod.imagen, prod.etiqueta, prod.idSucursal));
+    const items = filtrado.map(prod => new Producto(prod.nombre, prod.descripcion, prod.precio, prod.idCategoria, prod.stock, prod.link, prod.etiqueta, prod.idSucursal, prod.id));
     console.log(items);
     const RellenarProductos = (items) => { 
         items.forEach((producto) => {
-            const { nombre, descripcion, precio, idCategoria, stock, imagen, etiqueta} = producto;
+            const { nombre, descripcion, precio, idCategoria, stock, link, etiqueta, id} = producto;
             const div = document.createElement('div');
             div.classList = 'col g-5 hidden';
             div.innerHTML = `
             <div class="card">
-                <img src="${"."+imagen}" class="card-img-top" alt="Productos" />
+                <img src="${link}" class="card-img-top" alt="Productos" />
                 <div class="card-body">
                     <h5 class="card-title card__name">${nombre}</h5>
                     <p class="categoria_prod">Categoria: ${idCategoria}</p>
                     <p class="card-text card__description">${descripcion}</p>
                     <p class="card-text card__etiqueta">${etiqueta}</p>
                     <p class="price_producto">${precio}</p>
-                    <label class="form-label" for="cantProducto">Cantidad:<input type="number" value = "1" class="form-control" min="0" /></label>
                     <p class="stock" value="${stock}" hidden>${stock}</p>
                     </div>
-                <div class="card__end">
-                    <a href="#" class="button--secondary button--card">Agregar al Carro</a>
+
+                <div class = "botones">
+                
+                    <a href="./editarProducto.html">
+                        <ion-icon name="create-outline" class ="editar" onclick = "editarProductoo(${id})"></ion-icon>
+
+                    </a>
+                    <ion-icon name="trash-outline" class ="borrar" onclick = "borrarProducto(${id})"></ion-icon>
                 </div>
+                
             </div>
             `;
             contenedorProductos.appendChild(div);
+            // Agrega evento borrar 
         });
         };
                     
         if (contenedorProductos) {
             RellenarProductos(items);
         }
-        
-        const cards = document.querySelectorAll('.card');
-//     class Producto {
-//         constructor(nombre, descripcion, precio, categoria, stock, imagen, etiqueta){
-//             this.nombre = nombre;
-//             this.descripcion = descripcion;
-//             this.precio = precio;
-//             this.categoria = categoria;
-//             this.stock = stock;
-//             this.imagen = imagen;
-//             this.etiqueta = etiqueta;
     
-//     }
-// }
 }
 fetchMethod();
 
 class Producto {
-    constructor(nombre, descripcion, precio, idCategoria, stock, imagen, etiqueta, idSucursal){
+    constructor(nombre, descripcion, precio, idCategoria, stock, link, etiqueta, idSucursal, id){
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.precio = precio;
             this.idCategoria = idCategoria;
             this.stock = stock;            
             this.etiqueta = etiqueta;
-            this.imagen = imagen;
+            this.link = link;
             this.idSucursal = idSucursal;
+            this.id = id;
             }}
 
 
+function borrarProducto(ide){
+    console.log(ide);
+}
 
 
-    
+function editarProductoo(ide){
+    idProducto = ide;
+    // localStorage.setItem('idProducto', idProducto);
+
+    nombreProducto = document.querySelector('.nombreProducto');
+    descripcionProducto = document.querySelector('.descripcionProducto');
+
+
+    const ed = fetch("https://slifer.bsite.net/td-producto",{
+    method:"GET",
+    headers:{
+        "Content-Type":"application/json"
+    },
+    })
+
+    async function editar(){
+        let respuesta = await ed;
+        prod = await respuesta.json();
+        const filtradoProd = prod.filter(variable => variable.id == ide);
+        console.log(filtradoProd);
+
+
+    }
+
+    editar(ide);
+
+}
+
+
+
