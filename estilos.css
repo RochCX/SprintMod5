@@ -1,15 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+--main-color:#fff;
+}
+/*Generales*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-.botones{
+body{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    overflow:hidden;
+}
+/*Barra navegadora*/
+.main-header{
+    background: white;
+    width: 100%;
+    height:70px;
+    margin-top: 3em;
+    padding-bottom: 3em;
+}
+
+nav{
+    position: absolute;
+    z-index: 999999;
+    left:0;
+    top:0;
+    width: 250px;
+    top:50px;
+    height:calc(100vh - 50px);
+    background:#01D37F;
+    transform:translateX(-100%);
+    transition:.4s ease;
+}
+
+.navigation li{
+    list-style:none;
+    width: 100%;
+    border-bottom: 1px solid #01D37F;
+}
+
+.navigation a{
+    color:var(--main-color);
+    display: block;
+    line-height:3.5;
+    padding: 0 10px;
+    text-decoration:none;
+    transition:.4s ease;
+}
+
+.navigation a:hover{
+transform:translateX(10%);
+}
+
+#btn-nav{
+    display: none;
+}
+
+#btn-nav:checked ~ nav{
+    transform:translateX(0);
+}
+
+.btn-nav{
+    color:var(--main-color);
+    font-size:30px;
+    position: absolute;
+    left:0;
+    top:0;
+    cursor:pointer;
+    padding:6.5px 15px;
+    transition:.2s ease;
+    background:rgba(0,0,0,.1);
+}
+
+.btn-nav:hover{
+    background:rgba(0,0,0,.3);
+}
+
+/*Secciones*/
+section{
+    padding: 2em;
+}
+
+h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    letter-spacing: 0.02em;
+}
+
+
+/*Cards*/
+.card{
+    /* height: 50vh; */
     display: flex;
-    justify-content: space-around;
+    gap: 5px;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    margin: 5em;
+    width: 50em;
+    margin: 0rem 2rem 2rem;
+}
+
+.card-img-top{
+    width: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.wrapper--green {
+    background-color: rgba(0, 175, 145, 0.1);
+}
+
+.card__name {
+    font-size: 110%;
+    font-weight: 600;
+    text-align: center;
+}
+.card__description {
+    font-size: 90%;
+    font-weight: 300;
+    text-align: center;
+}
+.card__end {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}  
+.price_producto {
+    padding: 1em 1em 1em 1em;
+    text-align: center;
+    font-size: 100%;
+    font-weight: 700;
+    color: #05d481;
+}
+
+/*Botones*/
+button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #252525
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #05d481;
+    background: #FAFAFA;
+    box-shadow: 3px 3px #05d481;
+    cursor: pointer;
+    margin: 35px 0;
+}
+
+button:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+.btnEditProd, .btnIraProductos{
+    background-color: rgb(118, 157, 154);
+    color: white;
+    font-weight: 600;
+    height: 50px;
+    width: 45%;
+    margin: 1em auto;
+    border: 1px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+    
+}
+
+.btnEditProd{
+    background-color: rgb(120, 255, 149);
+    border: 1px solid black;
+    color: black;
+}
+
+.btnEditProd:hover{
+    background-color: rgb(103, 184, 122);
 }
 
 
-ion-icon{
-    width: 2em;
-    height: 2em;
+.btnIraProductos{
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
 }
 
+.btnIraProductos:hover{
+    border: 1px solid black;
+    background-color: rgb(128, 125, 125);
+}
+
+/*Links*/
+a{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Borrar*/
 .borrar{
     color: blue;
 }
@@ -18,15 +207,9 @@ ion-icon{
     color: rgb(18, 104, 104);
 }
 
-
-
-.h2edProducto{
-    font-size: 2em;
-    text-align: center;
-}
-
-
+/*Formulario*/
 .formulario{
+    font-family: 'Poppins', sans-serif;
     margin: 3em auto;
     display: flex;
     flex-direction: column;
@@ -46,49 +229,25 @@ input{
     max-width: 15em;
 }
 
-.btnEditProd, .btnIraProductos{
-    background-color: rgb(118, 157, 154);
-    color: white;
-    font-weight: 600;
-    height: 50px;
-    width: 45%;
-    margin: 1em auto;
-    border: 1px solid white;
-    border-radius: 15px;
-    cursor: pointer;
-    
+/*Footer*/
+.footer {
+    background-color: #686868;
+    font-weight: 300;
+    text-align: center;
+    padding: 2em 0;
+    flex-direction: column;
 }
-
-
-.btnEditProd{
-    background-color: rgb(120, 255, 149);
-    border: 1px solid black;
-    color: black;
-}
-
-.btnEditProd:hover{
-    background-color: rgb(103, 184, 122);
-}
-
-a{
-    all: unset;
+.footer__listgroup {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    text-align: center;
+    gap: 1em;
+    color: white;
+    font-weight: 400;
 }
-
-.btnIraProductos{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
-}
-
-.btnIraProductos:hover{
-    border: 1px solid black;
-    background-color: rgb(128, 125, 125);
-}
-
-
-.imgProductoP{
-    width: 50%;
-    margin: 0 auto;
+/*Iconos Sociales*/
+ion-icon{
+    width: 2em;
+    height: 2em;
 }
