@@ -93,21 +93,30 @@ h2{
 
 
 /*Cards*/
+.contenedorCards{
+    padding: 3em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    row-gap: 3em;
+}
 .card{
     /* height: 50vh; */
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
-    border: 1px solid red;
-    margin: 5em;
-    width: 50em;
-    margin: 0rem 2rem 2rem;
+    border: 1px solid r6ed;
+    /* padding: 0 1em; */
+    /* margin: 5em; */
+    /* width: 30em; */
+    /* margin: 0rem 2rem 2rem; */
 }
 
 .card-img-top{
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     cursor: pointer;
+    padding-top: 1em;
 }
 
 .wrapper--green {
@@ -118,17 +127,14 @@ h2{
     font-size: 110%;
     font-weight: 600;
     text-align: center;
+    padding: 0 1em;
 }
 .card__description {
     font-size: 90%;
     font-weight: 300;
     text-align: center;
+    padding: 0 1em;
 }
-.card__end {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}  
 .price_producto {
     padding: 1em 1em 1em 1em;
     text-align: center;
@@ -136,9 +142,18 @@ h2{
     font-weight: 700;
     color: #05d481;
 }
+.card__boton{
+    color:#555555;
+    cursor:pointer;
+    height: 1.5em;
+    width: 1.5em;
+}
+.card__boton:hover {
+    color:#05d481;
+}
 
 /*Botones*/
-button,.boton {
+button{
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     color: #252525;
@@ -157,55 +172,12 @@ button:active {
     transform: translate(3px, 3px);
 }
 
-.btnEditProd, .btnIraProductos{
-    background-color: rgb(118, 157, 154);
-    color: white;
-    font-weight: 600;
-    height: 50px;
-    width: 45%;
-    margin: 1em auto;
-    border: 1px solid white;
-    border-radius: 15px;
-    cursor: pointer;
-    
-}
-
-.btnEditProd{
-    background-color: rgb(120, 255, 149);
-    border: 1px solid black;
-    color: black;
-}
-
-.btnEditProd:hover{
-    background-color: rgb(103, 184, 122);
-}
-
-
-.btnIraProductos{
-    font-family: 'Poppins', sans-serif;
-    background-color: black;
-}
-
-.btnIraProductos:hover{
-    border: 1px solid black;
-    background-color: rgb(128, 125, 125);
-}
-
 /*Links*/
 a{
     all: unset;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/*Borrar*/
-.borrar{
-    color: blue;
-}
-
-.borrar:hover{
-    color: rgb(18, 104, 104);
 }
 
 /*Formulario*/
@@ -236,7 +208,7 @@ input{
     font-weight: 300;
     text-align: center;
     padding: 2em 0;
-    flex-direction: row;
+    /* flex-direction: row; */
 }
 .footer__listgroup {
     display: flex;
@@ -256,13 +228,13 @@ input{
     gap: 1em;
 }
 
-ion-icon{
+.footer_socialMedia--icon{
     width: 2em;
     height: 2em;
     cursor: pointer;
     color: #FAFAFA;
 }
 
-ion-icon:hover{
+.footer_socialMedia--icon:hover{
     color: #05d481;
 }

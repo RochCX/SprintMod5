@@ -40,25 +40,24 @@ async function fetchMethod(){
         items.forEach((producto) => {
             const { nombre, descripcion, precio, idCategoria, stock, link, etiqueta, id} = producto;
             const div = document.createElement('div');
-            div.classList = '';
+            div.classList = 'card col-4';
             div.innerHTML = `
-            <div class="card">
                 <img src="${link}" class="card-img-top" alt="Productos" />
+                <div class = "card__botones">
+                    <a href="./editarProducto.html?id=${id}">
+                        <ion-icon name="create-outline" class ="editar card__boton" ></ion-icon>
+                    </a>
+                    <ion-icon name="trash-outline" class ="borrar card__boton" onclick = "borrarProducto(${id})"></ion-icon>
+                </div> 
                 <div class="card-body">
                     <h5 class="card-title card__name">${nombre}</h5>
                     <p class="categoria_prod">Categoria: ${idCategoria}</p>
                     <p class="card-text card__description">${descripcion}</p>
                     <p class="card-text card__etiqueta">${etiqueta}</p>
-                    <p class="price_producto">${precio}</p>
+                    <p class="price_producto">$${precio}</p>
                     <p class="stock" value="${stock}" hidden>${stock}</p>
                 </div>
-            <div class = "botones">
-                    <a href="./editarProducto.html?id=${id}" class= "boton">
-                        <ion-icon name="create-outline" class ="editar" ></ion-icon>
-                    </a>
-                    <ion-icon name="trash-outline" class ="borrar boton" onclick = "borrarProducto(${id})"></ion-icon>
-                </div>  
-            </div>
+                
             `;
 
             contenedorProductos.appendChild(div);
