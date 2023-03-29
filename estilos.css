@@ -12,7 +12,7 @@
 body{
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    overflow:hidden;
+    overflow-x:hidden;
 }
 /*Barra navegadora*/
 .main-header{
@@ -40,6 +40,7 @@ nav{
     list-style:none;
     width: 100%;
     border-bottom: 1px solid #01D37F;
+    cursor: pointer;
 }
 
 .navigation a{
@@ -137,10 +138,10 @@ h2{
 }
 
 /*Botones*/
-button {
+button,.boton {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
-    color: #252525
+    color: #252525;
     text-transform: uppercase;
     padding: 10px 20px;
     border-radius: 10px;
@@ -148,7 +149,7 @@ button {
     background: #FAFAFA;
     box-shadow: 3px 3px #05d481;
     cursor: pointer;
-    margin: 35px 0;
+    margin: 10px 0;
 }
 
 button:active {
@@ -235,19 +236,33 @@ input{
     font-weight: 300;
     text-align: center;
     padding: 2em 0;
-    flex-direction: column;
+    flex-direction: row;
 }
 .footer__listgroup {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     text-align: center;
     gap: 1em;
     color: white;
     font-weight: 400;
-}
+    list-style: none;}
+
 /*Iconos Sociales*/
+.footer_socialMedia{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+}
+
 ion-icon{
     width: 2em;
     height: 2em;
+    cursor: pointer;
+    color: #FAFAFA;
+}
+
+ion-icon:hover{
+    color: #05d481;
 }
