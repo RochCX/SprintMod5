@@ -204,6 +204,7 @@ input{
 
 /*Footer*/
 .footer {
+    height: 150px;
     background-color: #686868;
     font-weight: 300;
     text-align: center;
@@ -218,7 +219,16 @@ input{
     gap: 1em;
     color: white;
     font-weight: 400;
-    list-style: none;}
+    list-style: none;
+
+}
+.footer__item{
+    cursor: pointer;
+    font-size: 1em;
+}
+.footer__item:hover{
+    color: #05d481;
+}
 
 /*Iconos Sociales*/
 .footer_socialMedia{
