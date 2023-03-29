@@ -1,0 +1,94 @@
+
+.botones{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+ion-icon{
+    width: 2em;
+    height: 2em;
+}
+
+.borrar{
+    color: blue;
+}
+
+.borrar:hover{
+    color: rgb(18, 104, 104);
+}
+
+
+
+.h2edProducto{
+    font-size: 2em;
+    text-align: center;
+}
+
+
+.formulario{
+    margin: 3em auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    max-width: 450px;
+    justify-content: space-between;
+}
+
+label{
+    display: flex;
+    justify-content:space-between;
+    margin: 1em 2em; 
+    font-size: 1.3em;
+}
+
+input{
+    max-width: 15em;
+}
+
+.btnEditProd, .btnIraProductos{
+    background-color: rgb(118, 157, 154);
+    color: white;
+    font-weight: 600;
+    height: 50px;
+    width: 45%;
+    margin: 1em auto;
+    border: 1px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+    
+}
+
+
+.btnEditProd{
+    background-color: rgb(120, 255, 149);
+    border: 1px solid black;
+    color: black;
+}
+
+.btnEditProd:hover{
+    background-color: rgb(103, 184, 122);
+}
+
+a{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnIraProductos{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+
+.btnIraProductos:hover{
+    border: 1px solid black;
+    background-color: rgb(128, 125, 125);
+}
+
+
+.imgProductoP{
+    width: 50%;
+    margin: 0 auto;
+}

@@ -1,4 +1,5 @@
-fetch("https://slifer.bsite.net/td-categoria",{
+// id = 9
+fetch("https://slifer.bsite.net/td-sucursal",{
     method:"GET",
     headers:{
         "Content-Type":"application/json"
@@ -18,3 +19,4 @@ fetch("https://slifer.bsite.net/td-categoria",{
     .catch(error =>{
         console.log(error);
     })
+
