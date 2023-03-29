@@ -15,6 +15,10 @@ body{
     overflow-x:hidden;    
 }
 /*Barra navegadora*/
+.header__logo{
+    cursor: pointer;
+}
+
 .main-header{
     width: 100%;
     height:70px;
@@ -76,6 +80,34 @@ transform:translateX(10%);
 .btn-nav:hover{
 color: #05d481;
 }
+
+/*Crumbs*/
+
+#crumbs{
+display: flex;
+flex-direction: row;
+list-style: none;
+margin-left: 4em;
+}
+.crumbs__item::after{
+    color: #252525;
+	content: '|';
+	padding: 0 0.25em 0 0.5em;
+}
+.crumbs__item.last::after{
+	content: '';
+	padding: 0 0.25em 0 0.5em;
+}
+
+.crumbs__item{
+    cursor: pointer;
+    text-align: start;
+}
+
+.crumbs__item:hover{
+    color: #05d481;
+}
+
 
 /*Secciones*/
 section{
@@ -183,6 +215,25 @@ button{
 button:active {
     box-shadow: none;
     transform: translate(3px, 3px);
+}
+
+#btn__agregar{
+/* display: fixed; */
+z-index: 99999;
+cursor: pointer;
+bottom: 5rem;
+right: 1.2rem;
+position: fixed;
+font-size: 2rem;
+width: 3rem;
+aspect-ratio: 1;
+background-color: #05d481;
+border-radius: 50%;
+color: #FAFAFA;
+box-shadow: 0 0 3px 0#444444;
+}
+#btn__agregar:hover{
+    background-color: #555555;
 }
 
 /*Links*/

@@ -19,7 +19,7 @@
 </head>
 <body>
     <header class="main-header">
-        <img  class="header__logo" src="./img/techmarket-01.png" width="250" alt="Logo">
+        <a href="./index.html"><img  class="header__logo" src="./img/techmarket-01.png" width="250" alt="Logo"></a>
         <label for="btn-nav" class="btn-nav"><i class="fi fi-br-menu-burger"></i></label>
         <input type="checkbox" id="btn-nav">
             <nav>
@@ -42,7 +42,12 @@
         que buscas, escríbenos en nuestra sección de Contacto ;
     </p>
 </main>
-
+<!-- Inicio Breadcrumbs -->
+      <ul id="crumbs">
+          <li><a class="crumbs__item" href="./index.html">Inicio</a></li>
+          <li><a class="crumbs__item last" href="./productos.html">Productos</a></li>
+      </ul>
+<!-- Fin Breadcrumbs --> 
 <!-- tarjetas   -->
 <div class="card__row">
     <div
@@ -51,6 +56,9 @@
     ></div>
 </div>
 </section>
+
+<!-- botón flotante -->
+<a href="./editarProducto.html"><div id="btn__agregar">+</div></a>
 
 <!-- Footer -->
 <footer class="footer">
