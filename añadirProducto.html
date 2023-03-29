@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Sistema de ingreso de nuevo producto</h1>
+    <!-- <ion-icon name="add-circle-outline" class ="añadir"></ion-icon> -->
+    <form action="" id="formAdd">
+
+        <label for="">
+            <h4>Agregue un nombre</h4>
+            <input type="text" id="add1" class="nombreProducto">
+        </label>
+        <label for="">
+            <h4>Agregue una descripcion</h4>
+            <input type="text" id="add2" class="descripcionProducto">
+        </label>
+        <label for="">
+            <h4>Defina el precio unitario</h4>
+            <input type="number" id="add3">
+        </label>
+        <label for="">
+            <h4>Categoria perteneciente</h4> <!--Colocar una funcion media que transforme el nombre a numero-->
+            <input type="text" id="add4"><!--O podemos dejar la lista desplegable de categorias disponible :O-->
+        </label>
+        <label for="">
+            <h4>Defina la cantidad de stock disponible</h4>
+            <input type="number" id="add5">
+        </label>
+        <label for="">
+            <h4>Añada una imagen</h4>
+            <input type="file" id="imgSubida" accept="image/*" id="add6">
+        </label>
+        <label for="">
+            <h4>Añada las etiquetas correspondientes</h4>
+            <input type="text" id="add7">
+        </label>
+        <br><br>
+        <input type="submit" value="Enviar" id="addNuevoProducto">
+
+    </form>
+    <script src="scripts/agregarProductos.js"></script>
+    <!-- <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> -->
+</body>
+</html>

@@ -57,9 +57,8 @@ async function fetchMethod(){
                 <div class = "botones">
                 
                 <a href="./editarProducto.html">
-                        <ion-icon name="create-outline" class ="editar" onclick = "editarProductoo(${id})"></ion-icon>
-
-                    </a>
+                    <ion-icon name="create-outline" class ="editar" onclick = "editarProductoo(${id})"></ion-icon>
+                </a>
                     <ion-icon name="trash-outline" class ="borrar" onclick = "borrarProducto(${id})"></ion-icon>
                 </div>
                 
@@ -142,42 +141,6 @@ async function actualizarMod(){
     textoProducto.value = miObjeto.descripcion;
 }
 
-
-// async function editarProductoo(ide){
-//     idProducto = ide;
-//     var objFind = items.filter(variable => variable.id == ide);
-//     console.log(objFind);
-//     var stringOBJ = JSON.stringify(objFind);
-//     localStorage.setItem("modProducto",stringOBJ);
-// }
-
-// function editarProductoo(ide){
-//     idProducto = ide;
-//     // localStorage.setItem('idProducto', idProducto);
-
-//     nombreProducto = document.querySelector('.nombreProducto');
-//     descripcionProducto = document.querySelector('.descripcionProducto');
-
-
-//     const ed = fetch("https://slifer.bsite.net/td-producto",{
-//     method:"GET",
-//     headers:{
-//         "Content-Type":"application/json"
-//     },
-//     })
-
-//     async function editar(){
-//         let respuesta = await ed;
-//         prod = await respuesta.json();
-//         const filtradoProd = prod.filter(variable => variable.id == ide);
-//         console.log(filtradoProd);
-
-
-//     }
-
-//     editar(ide);
-
-// }
 
 
 
