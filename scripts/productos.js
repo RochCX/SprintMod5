@@ -40,7 +40,7 @@ async function fetchMethod(){
         items.forEach((producto) => {
             const { nombre, descripcion, precio, idCategoria, stock, link, etiqueta, id} = producto;
             const div = document.createElement('div');
-            div.classList = 'card col-4';
+            div.classList = 'card';
             div.innerHTML = `
                 <img src="${link}" class="card-img-top" alt="Productos" />
                 <div class = "card__botones">
