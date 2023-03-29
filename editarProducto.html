@@ -5,28 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Producto</title>
+    <link rel="stylesheet" href="./estilos.css">
 </head>
 <body>
     
-    <form action="">
+    <h2 class="h2edProducto">Edita tu producto: </h2>
 
-        <label for="">
-            <input type="text" class="nombreProducto">Nombre
+    <form action="" class="formulario">
+
+        
+        <img src="" alt="imgProducto" class="imgProductoP">
+        
+        <label for="">Nombre: 
+            <input type="text" id="nomProd">
         </label>
-        <label for="">
-            <input type="text" class="descripcionProducto">Descripcion
+        <label for=""> Descripcion:
+            <input type="text" id="descProd">
         </label>
-        <label for="">
-            <input type="text">id
+        <label for="">Precio:
+            <input type="text" id="precProd">
+        </label>
+        <label for="">Categoría:
+            <input type="text" id="catProd">
+        </label>
+        <label for="">Stock
+            <input type="text" id="stockProd">
+        </label>
+        <label for="">Imagen
+            <input type="text" id="linkProd">
+        </label>
+        <label for="">Etiqueta
+            <input type="text" id="etiqProd">
         </label>
 
+        <button type="submit" class="btnEditProd">Actualizar información</button>
+        <a href="./productos.html" class="btnIraProductos">Cancelar y volver</a>
 
-
-
+        
     </form>
 
-
-
+    <script src="./scripts/editarProducto.js">  </script>
 
 </body>
 </html>

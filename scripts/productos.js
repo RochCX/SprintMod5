@@ -2,6 +2,10 @@ let data;
 let arreglo = [];
 let items;
 const contenedorProductos = document.querySelector('.contenedorCards');
+let nombreProducto = document.querySelector('.nombreProducto');
+let descripcionProducto = document.querySelector('.descripcionProducto');
+
+
 
 let idProducto;
 
@@ -23,7 +27,7 @@ const x = fetch("https://slifer.bsite.net/td-producto",{
     //     console.log(data);
     // })
     // .catch(error =>{
-    //     console.log(error);
+        //     console.log(error);
     // })
 
 async function fetchMethod(){
@@ -39,8 +43,8 @@ async function fetchMethod(){
             div.classList = 'col g-5 hidden';
             div.innerHTML = `
             <div class="card">
-                <img src="${link}" class="card-img-top" alt="Productos" />
-                <div class="card-body">
+            <img src="${link}" class="card-img-top" alt="Productos" />
+            <div class="card-body">
                     <h5 class="card-title card__name">${nombre}</h5>
                     <p class="categoria_prod">Categoria: ${idCategoria}</p>
                     <p class="card-text card__description">${descripcion}</p>
@@ -51,8 +55,8 @@ async function fetchMethod(){
 
                 <div class = "botones">
                 
-                    <a href="./editarProducto.html">
-                        <ion-icon name="create-outline" class ="editar" onclick = "editarProductoo(${id})"></ion-icon>
+                    <a href="./editarProducto.html?id=${id}">
+                        <ion-icon name="create-outline" class ="editar" ></ion-icon>
 
                     </a>
                     <ion-icon name="trash-outline" class ="borrar" onclick = "borrarProducto(${id})"></ion-icon>
@@ -60,6 +64,7 @@ async function fetchMethod(){
                 
             </div>
             `;
+
             contenedorProductos.appendChild(div);
             // Agrega evento borrar 
         });
@@ -87,37 +92,16 @@ class Producto {
 
 
 function borrarProducto(ide){
-    console.log(ide);
-}
-
-
-function editarProductoo(ide){
-    idProducto = ide;
-    // localStorage.setItem('idProducto', idProducto);
-
-    nombreProducto = document.querySelector('.nombreProducto');
-    descripcionProducto = document.querySelector('.descripcionProducto');
-
-
-    const ed = fetch("https://slifer.bsite.net/td-producto",{
-    method:"GET",
+    fetch(`https://slifer.bsite.net/td-producto/${ide}`,{
+    method:"DELETE",
     headers:{
         "Content-Type":"application/json"
-    },
-    })
+    }, 
+});
 
-    async function editar(){
-        let respuesta = await ed;
-        prod = await respuesta.json();
-        const filtradoProd = prod.filter(variable => variable.id == ide);
-        console.log(filtradoProd);
+    setTimeout(function(){
+        location.reload();
+    }, 500);
 
-
-    }
-
-    editar(ide);
-
+    // window.location.href = "./productos.html";
 }
-
-
-
