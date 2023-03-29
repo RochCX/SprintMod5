@@ -6,25 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Market</title>
     <!-- Estilos -->
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" sizes="180x180" href="./img/favicon.ico">
+    <!-- Iconos -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 
 </head>
 <body>
     <header class="main-header">
         <img  class="header__logo" src="./img/techmarket-01.png" width="250" alt="Logo">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
+        <label for="btn-nav" class="btn-nav"><i class="fi fi-br-menu-burger"></i></label>
         <input type="checkbox" id="btn-nav">
             <nav>
                 <ul class="navigation">
                     <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./index.html">Buscar</a></li>
                     <li><a href="./productos.html">Productos</a></li>
-                    <li><a href="./formulario.html">Agregar un producto</a></li>
+                    <li><a href="./editarProducto.html">Agregar un producto</a></li>
                     <li><a href="./contacto.html">Contacto</a></li>
                 </ul>
             </nav>
@@ -38,18 +41,16 @@
         Explora aquí todo nuestro catálogo de productos. Si no encuentras lo
         que buscas, escríbenos en nuestra sección de Contacto ;
     </p>
-    <button href="">Comprar</button>
-
-<!-- Sección cards productos -->
-    <div class="card__row">
-        <div
-        class="row row-cols-1 row-cols-md-2 row-cols-xl-3 contenedorCards"
-        id="contenedorProducts"
-        ></div>
-    </div>
-    </section>
 </main>
 
+<!-- tarjetas   -->
+<div class="card__row">
+    <div
+    class="contenedorCards"
+    id="contenedorProducts"
+    ></div>
+</div>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
@@ -58,34 +59,38 @@
 <div class="team">
     <ul class="footer__listgroup">
         <li class="footer__item "><img src="./img/favicon.ico" width="50" alt=""></li>
-        <li class="footer__item ">Rodrigo Pequeño</li>
-        <li class="footer__item ">Gonzalo Peña</li>
-        <li class="footer__item">Francesca Ramirez</li>
-        <li class="footer__item">Gabriela Soto</li>
-        <li class="footer__item">Macarena Ramdohr</li>
+        <a href="https://github.com/RochCX"><li class="footer__item ">Rodrigo Pequeño</li></a>
+        <a href="https://github.com/Gyrefallon"><li class="footer__item ">Gonzalo Peña</li></a>
+        <a href="https://github.com/Frany02"><li class="footer__item">Francesca Ramirez</li></a>
+        <a href="https://github.com/GabiSh19"><li class="footer__item">Gabriela Soto</li></a>
+        <a href="https://github.com/sappy666"><li class="footer__item">Macarena Ramdohr</li></a>
     </ul>
 
 <!-- Redes sociales -->
     <div class="footer_socialMedia">
         <a href="https://www.instagram.com/">
-        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-instagram" class="footer_socialMedia--icon"></ion-icon>
         </a>  
         <a href="https://www.facebook.com/">
-        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-facebook" class="footer_socialMedia--icon"></ion-icon>
         </a>    
         <a href="https://twitter.com/?lang=es">
-        <ion-icon name="logo-twitter"></ion-icon>
+        <ion-icon name="logo-twitter" class="footer_socialMedia--icon"></ion-icon>
         </a>
     </div>
 </div>
-</footer>
+
 <!-- Javascript -->
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    <script src="productos.js"></script>
-    <script src="sucursal.js"></script>
-    <script src="categorias.js"></script>
+    <script src="scripts/productos.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
+<!-- Javascript -->
+    <script src="/productos.js"></script>
+    <!-- <script src="sucursal.js"></script> -->
+    <!-- <script src="categorias.js"></script> -->
 </body>
 </html>
