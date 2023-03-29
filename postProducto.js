@@ -1,6 +1,5 @@
 let urlAgregar = 'https://slifer.bsite.net/td-producto';
 let formAgregar = document.getElementById("formulario");
-
 let nombreProd = document.getElementById("nombre");
 let descripcionProd = document.getElementById("descripcion");
 let precioProd = document.getElementById("precio");
