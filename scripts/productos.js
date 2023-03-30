@@ -1,6 +1,7 @@
 let data;
 let arreglo = [];
 let items;
+let urlProducto = "https://slifer.bsite.net/td-producto"
 const contenedorProductos = document.querySelector('.contenedorCards');
 let nombreProducto = document.querySelector('.nombreProducto');
 let descripcionProducto = document.querySelector('.descripcionProducto');
@@ -9,7 +10,8 @@ let descripcionProducto = document.querySelector('.descripcionProducto');
 
 let idProducto;
 
-const x = fetch("https://slifer.bsite.net/td-producto",{
+
+const prodFetch = fetch("https://slifer.bsite.net/td-producto",{
     method:"GET",
     headers:{
         "Content-Type":"application/json"
@@ -29,13 +31,16 @@ const x = fetch("https://slifer.bsite.net/td-producto",{
     // .catch(error =>{
         //     console.log(error);
     // })
+fetchMethod();
 
 async function fetchMethod(){
-    let respuesta = await x;
+    let respuesta = await prodFetch;
     data = await respuesta.json();
     const filtrado = data.filter(variable => variable.idSucursal == 9);
     const items = filtrado.map(prod => new Producto(prod.nombre, prod.descripcion, prod.precio, prod.idCategoria, prod.stock, prod.link, prod.etiqueta, prod.idSucursal, prod.id));
     console.log(items);
+    items.forEach(elem =>
+        arreglo.push(elem));
     const RellenarProductos = (items) => { 
         items.forEach((producto) => {
             const { nombre, descripcion, precio, idCategoria, stock, link, etiqueta, id} = producto;
@@ -56,8 +61,10 @@ async function fetchMethod(){
                     <p class="card-text card__etiqueta">${etiqueta}</p>
                     <p class="price_producto">$${precio}</p>
                     <p class="stock" value="${stock}" hidden>${stock}</p>
-                </div>
+                    </div>
+
                 
+            </div>
             `;
 
             contenedorProductos.appendChild(div);
@@ -68,9 +75,36 @@ async function fetchMethod(){
         if (contenedorProductos) {
             RellenarProductos(items);
         }
-    
+        
+        const cards = document.querySelectorAll('.card');
+        
 }
-fetchMethod();
+
+async function modificarProductos(modificarID) {
+    freno == true;
+    if (freno == false) {
+    await fetch(urlProducto, {
+        method: 'PUT',   
+        mode: 'cors', 
+        cache: 'no-cache',
+        credencials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({
+            "id": modificarID,
+            "nombre": "WACOM ONE 13 CREATIVE PEN DISPLAY",
+            "precio": 374990,
+            "link": "../img/p01.jpg",
+            "stock": 7,
+            "etiqueta": "tableta digital wacom arte tecno escritorio profesional Hola!",
+            "descripcion": "una tableta digitalizadora con una pantalla de 13 pulgadas y lápiz digital que permite a los usuarios dibujar y crear arte digital.",
+            "idCategoria": 5,
+            "idSucursal": 9
+        })
+    })}
+}
+// modificarProductos(1043);
 
 class Producto {
     constructor(nombre, descripcion, precio, idCategoria, stock, link, etiqueta, idSucursal, id){
@@ -87,16 +121,29 @@ class Producto {
 
 
 function borrarProducto(ide){
-    fetch(`https://slifer.bsite.net/td-producto/${ide}`,{
-    method:"DELETE",
-    headers:{
-        "Content-Type":"application/json"
-    }, 
-});
-
-    setTimeout(function(){
-        location.reload();
-    }, 500);
-
-    // window.location.href = "./productos.html";
+    console.log(ide);
 }
+async function editarProductoo(ide){
+    await fetchMethod;
+    let objFinder = arreglo.find(elemento => elemento.id == ide)
+    localStorage.setItem("modificarEste", JSON.stringify(objFinder));
+    // setTimeout(function(){
+    //     console.log("Espera");
+    // }, 3000);
+    
+    }
+async function actualizarMod(){
+    await editarProductoo;
+    const miObjetoGuardado = localStorage.getItem("modificarEste")
+    const miObjeto = JSON.parse(miObjetoGuardado);
+    console.log(miObjeto);
+    let textoNombre = document.getElementById("esto1")
+    console.log(textoNombre);
+    let textoProducto = document.getElementById("esto2");
+    textoNombre.value = miObjeto.nombre;
+    textoProducto.value = miObjeto.descripcion;
+}
+
+
+
+

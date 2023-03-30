@@ -5,18 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Producto</title>
-    <!-- Estilos -->
-    <link rel="stylesheet" href="./estilos.css">
-    <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" sizes="180x180" href="./img/favicon.ico">
-    <!-- Iconos -->
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    
 </head>
 <body>
+    <script>
+        window.addEventListener('load', function() {
+        console.log('La página ha cargado completamente');
+        actualizarMod();
+        });
+    </script>
     <!-- nav -->
     <header class="main-header">
         <a href="./index.html"><img  class="header__logo" src="./img/techmarket-01.png" width="250" alt="Logo"></a>
@@ -40,20 +37,20 @@
 <!-- Fin Breadcrumbs --> 
    <!-- form -->
     <form action="" class="formulario">
-        <h2 class="h2edProducto">Edita tu producto</h2>
+
         
-        <img src="" alt="imgProducto" class="imgProductoP">
+        <img src=" " alt="imgProducto" class="imgProductoP">
         
-        <label for="">Nombre 
-            <input type="text" id="nomProd">
+        <label for="">Nombre: 
+            <input type="text" id="esto1" id="nomProd">
         </label>
-        <label for=""> Descripcion
+        <label for=""> Descripcion:
             <input type="text" id="descProd">
         </label>
-        <label for="">Precio
+        <label for="">Precio:
             <input type="text" id="precProd">
         </label>
-        <label for="">Categoría
+        <label for="">Categoría:
             <input type="text" id="catProd">
         </label>
         <label for="">Stock
@@ -68,36 +65,11 @@
 
         <button type="submit" class="btnEditProd">Actualizar información</button>
         <a href="./productos.html" class="btnIraProductos">Cancelar y volver</a>
+
+        
     </form>
-<!-- Footer -->
-<footer class="footer">
-    
-<!-- Equipo -->
-    <div class="team">
-        <ul class="footer__listgroup">
-            <li class="footer__item "><img src="./img/favicon.ico" width="50" alt=""></li>
-            <a href="https://github.com/RochCX"><li class="footer__item ">Rodrigo Pequeño</li></a>
-            <a href="https://github.com/Gyrefallon"><li class="footer__item ">Gonzalo Peña</li></a>
-            <a href="https://github.com/Frany02"><li class="footer__item">Francesca Ramirez</li></a>
-            <a href="https://github.com/GabiSh19"><li class="footer__item">Gabriela Soto</li></a>
-            <a href="https://github.com/sappy666"><li class="footer__item">Macarena Ramdohr</li></a>
-        </ul>
-    
-    <!-- Redes sociales -->
-        <div class="footer_socialMedia">
-            <a href="https://www.instagram.com/">
-            <ion-icon name="logo-instagram" class="footer_socialMedia--icon"></ion-icon>
-            </a>  
-            <a href="https://www.facebook.com/">
-            <ion-icon name="logo-facebook" class="footer_socialMedia--icon"></ion-icon>
-            </a>    
-            <a href="https://twitter.com/?lang=es">
-            <ion-icon name="logo-twitter" class="footer_socialMedia--icon"></ion-icon>
-            </a>
-        </div>
-    </div>
 
-    <script src="./scripts/editarProducto.js">  </script>
-
-</body>
+    <script src="./scripts/editarProducto.js">  </script>    <script src="scripts/productos.js"></script>
+        
+    </body>
 </html>
