@@ -80,32 +80,6 @@ async function fetchMethod(){
         
 }
 
-async function modificarProductos(modificarID) {
-    freno == true;
-    if (freno == false) {
-    await fetch(urlProducto, {
-        method: 'PUT',   
-        mode: 'cors', 
-        cache: 'no-cache',
-        credencials: 'same-origin',
-        headers: { 'Content-Type': 'application/json' },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: JSON.stringify({
-            "id": modificarID,
-            "nombre": "WACOM ONE 13 CREATIVE PEN DISPLAY",
-            "precio": 374990,
-            "link": "../img/p01.jpg",
-            "stock": 7,
-            "etiqueta": "tableta digital wacom arte tecno escritorio profesional Hola!",
-            "descripcion": "una tableta digitalizadora con una pantalla de 13 pulgadas y lápiz digital que permite a los usuarios dibujar y crear arte digital.",
-            "idCategoria": 5,
-            "idSucursal": 9
-        })
-    })}
-}
-// modificarProductos(1043);
-
 class Producto {
     constructor(nombre, descripcion, precio, idCategoria, stock, link, etiqueta, idSucursal, id){
             this.nombre = nombre;
@@ -121,7 +95,7 @@ class Producto {
 
 
 function borrarProducto(ide){
-    console.log(ide);
+    fetch()
 }
 async function editarProductoo(ide){
     await fetchMethod;
