@@ -264,7 +264,7 @@ label{
     font-size: 1.2em;
 }
 
-input{
+input,#selectCat{
     /* max-width: 15em; */
     background-color: #05d48128;
     margin:.3em;
@@ -274,6 +274,9 @@ input{
     font-size: .7em;
     border-radius: 10px;
     border-style: none;
+}
+#selectCat option{
+color: #444444;
 }
 
 .h2edProducto{

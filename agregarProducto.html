@@ -5,11 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./estilos.css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
     <title>Agregar nuevo producto</title>
 </head>
 <body>
+    <header class="main-header">
+        <a href="./index.html"><img  class="header__logo" src="./img/techmarket-01.png" width="250" alt="Logo"></a>
+        <label for="btn-nav" class="btn-nav"><i class="fi fi-br-menu-burger"></i></label>
+        <input type="checkbox" id="btn-nav">
+            <nav>
+                <ul class="navigation">
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./productos.html">Buscar</a></li>
+                    <li><a href="./productos.html">Productos</a></li>
+                    <li><a href="./agregarProducto.html">Agregar un producto</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+    </header>
+<!-- Inicio Breadcrumbs -->
+<ul id="crumbs">
+    <li><a class="crumbs__item" href="./index.html">Inicio</a></li>
+    <li><a class="crumbs__item last" href="./agregarProducto.html">Agregar nuevo producto</a></li>
+</ul>
+<!-- Fin Breadcrumbs --> 
     <h2>Agregar nuevo producto</h2>
-    <div class="form">
+    <div class="formulario">
         <form action="" method="post" id="formulario" name="">
     <div>
         <label for="nombre">Nombre</label>
@@ -21,7 +43,7 @@
     </div>
     <div>
     <label for="precio">Precio</label>
-    <input type="number" name="precio" id="precio" placeholder="Ingresa el precio del producto" required>
+    <input type="number" name="precio" id="precio" placeholder="Ingresa el precio del producto" min="0" required>
     </div>
     <div>
         <label for="categoria">Categoria</label>
@@ -31,7 +53,7 @@
     </div>
     <div>
         <label for="stock">Stock</label>
-        <input type="number" name="stock" id="stock" placeholder="Ingresa el stock del producto" required>
+        <input type="number" name="stock" id="stock" placeholder="Ingresa el stock del producto" min="0" required>
     </div>
     <div>
         <label for="imagen">Imagen</label>
@@ -45,6 +67,37 @@
     <a href="./productos.html" class="btnIraProductos">Cancelar y volver</a> 
     </form>
     </div>
+
+    <!-- Footer -->
+<footer class="footer">
+
+    <!-- Equipo -->
+    <div class="team">
+        <ul class="footer__listgroup">
+            <li class="footer__item "><img src="./img/favicon.ico" width="50" alt=""></li>
+            <a href="https://github.com/RochCX"><li class="footer__item ">Rodrigo Pequeño</li></a>
+            <a href="https://github.com/Gyrefallon"><li class="footer__item ">Gonzalo Peña</li></a>
+            <a href="https://github.com/Frany02"><li class="footer__item">Francesca Ramirez</li></a>
+            <a href="https://github.com/GabiSh19"><li class="footer__item">Gabriela Soto</li></a>
+            <a href="https://github.com/sappy666"><li class="footer__item">Macarena Ramdohr</li></a>
+        </ul>
+    
+    <!-- Redes sociales -->
+        <div class="footer_socialMedia">
+            <a href="https://www.instagram.com/">
+            <ion-icon name="logo-instagram"></ion-icon>
+            </a>  
+            <a href="https://www.facebook.com/">
+            <ion-icon name="logo-facebook"></ion-icon>
+            </a>    
+            <a href="https://twitter.com/?lang=es">
+            <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+        </div>
+    </div>
+    </footer>
+    <!-- End Footer -->
+
     <script src="scripts/agregarProductos.js"></script>
     <script src="scripts/validacionFormulario.js"></script>
 </body>

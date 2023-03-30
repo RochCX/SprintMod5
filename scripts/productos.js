@@ -135,7 +135,7 @@ searchBtn.addEventListener('click', async () => {
     let searchTag = product.etiqueta.search(query);
     let searchDesc = product.descripcion.search(query);
     if (query === product.nombre || searchTag>-1 || searchDesc >-1){
-        hidden.style.display = 'block'
+        hidden.style.display = 'flex';
      }else{
         hidden.style.display = 'none';
      }
