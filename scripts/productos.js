@@ -63,13 +63,6 @@ async function fetchMethod(){
                     <p class="stock" value="${stock}" hidden>${stock}</p>
                     </div>
 
-                <div class = "botones">
-                
-                <a href="./editarProducto.html">
-                    <ion-icon name="create-outline" class ="editar" onclick = "editarProductoo(${id})"></ion-icon>
-                </a>
-                    <ion-icon name="trash-outline" class ="borrar" onclick = "borrarProducto(${id})"></ion-icon>
-                </div>
                 
             </div>
             `;
