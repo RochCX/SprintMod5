@@ -50,7 +50,7 @@ formularioAgregar.addEventListener("submit", async (event) =>{
     const inputPrecio = document.getElementById("precio").value;
     const inputCategoria = document.getElementById("selectCat");
     const inputStock = document.getElementById("stock").value;
-    const inputImagen = document.getElementById("imagen");
+    const inputImagen = document.getElementById("imagen").value;
     // nose como verificar la imagen
     const inputEtiqueta = document.getElementById("etiqueta").value;
     const largoEtiqueta = inputEtiqueta.trim().length;
@@ -91,26 +91,26 @@ async function agregarProducto(){
         "idSucursal": nuevoItem.idSucursal
       }
       console.log(obj)
-    // await fetch(urlProducto, {
-    //     method: 'POST',   
-    //     mode: 'cors', 
-    //     cache: 'no-cache',
-    //     credencials: 'same-origin',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     redirect: 'follow',
-    //     referrerPolicy: 'no-referrer',
-    //     body: JSON.stringify({
-    //         "id": 0,
-    //         "nombre": nuevoItem.nombre,
-    //         "precio": nuevoItem.precio,
-    //         "link": nuevoItem.link,
-    //         "stock": nuevoItem.stock,
-    //         "etiqueta": nuevoItem.etiqueta,
-    //         "descripcion": nuevoItem.descripcion,
-    //         "idCategoria": nuevoItem.idCategoria,
-    //         "idSucursal": nuevoItem.idSucursal
-    //       })
-    // });
+    await fetch(urlProducto, {
+        method: 'POST',   
+        mode: 'cors', 
+        cache: 'no-cache',
+        credencials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({
+            "id": 0,
+            "nombre": nuevoItem.nombre,
+            "precio": nuevoItem.precio,
+            "link": nuevoItem.link,
+            "stock": nuevoItem.stock,
+            "etiqueta": nuevoItem.etiqueta,
+            "descripcion": nuevoItem.descripcion,
+            "idCategoria": nuevoItem.idCategoria,
+            "idSucursal": nuevoItem.idSucursal
+          })
+    });
 }
 class Producto {
     constructor(nombre, descripcion, precio, idCategoria, stock, link, etiqueta, idSucursal, id){
