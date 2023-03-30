@@ -70,7 +70,7 @@ formularioAgregar.addEventListener("submit", async (event) =>{
         return;
     } else if (parseInt(inputPrecio) <= 0 || parseInt(inputStock) <=0){
         alert ("Precio y Stock deben ser enteros y positivos");
-        return
+        return;
     } else {
         let encontrar = listaCategoria.find(elem => elem.nombre == inputCategoria.value);
         nuevoItem = new Producto(inputNombre, inputDescripcion, inputPrecio, encontrar.id, inputStock, pruebaIMG, inputEtiqueta, 9, 0);
