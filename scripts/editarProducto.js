@@ -78,3 +78,13 @@ async function actualizaInfo(nomMod, descMod, precMod, catMod, stockMod, etiqMod
         })
     })
 }
+
+function actualizarMod(){
+    const miObjetoGuardado = localStorage.getItem("modificarEste")
+    const miObjeto = JSON.parse(miObjetoGuardado);
+    console.log(miObjeto);
+    let textoNombre = document.getElementById("esto1")
+    let textoProducto = document.getElementById("esto2");
+    textoNombre.value = miObjeto.nombre;
+    textoProducto.value = miObjeto.descripcion;
+}
