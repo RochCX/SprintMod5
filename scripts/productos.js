@@ -49,8 +49,8 @@ async function fetchMethod(){
             div.innerHTML = `
                 <img src="${link}" class="card-img-top" alt="Productos" />
                 <div class = "card__botones">
-                    <a href="">
-                        <ion-icon name="create-outline" class ="editar card__boton" ></ion-icon>
+                    <a href="./editarProducto.html?id=${id}">
+                        <ion-icon name="create-outline" class ="editar card__boton" onclick="editarProductoo(${id})" ></ion-icon>
                     </a>
                     <ion-icon name="trash-outline" class ="borrar card__boton" onclick = "borrarProducto(${id})"></ion-icon>
                 </div>
@@ -108,7 +108,7 @@ function borrarProducto(ide){
 }
 async function editarProductoo(ide){
     await fetchMethod;
-    ide.preventDefault();
+    console.log(arreglo);
     let objFinder = arreglo.find(elemento => elemento.id == ide);
     console.log(objFinder);
     localStorage.setItem("modificarEste", JSON.stringify(objFinder));

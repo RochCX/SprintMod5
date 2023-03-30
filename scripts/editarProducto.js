@@ -1,6 +1,6 @@
 
 // let idProducto = localStorage.getItem('idProducto');
-
+let urlCategoria = "https://slifer.bsite.net/td-categoria"
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
@@ -34,7 +34,6 @@ async function buscaProducto(){
     stockProd.value = stock;
     linkProd.value = link;
     etiqProd.value = etiqueta;
-    
 }
 
 buscaProducto();
@@ -46,12 +45,12 @@ btnEditProd.addEventListener('click',(e) => {
     let nomMod = nomProd.value;
     let descMod = descProd.value;
     let precMod = precProd.value;
-    let catMod = catProd.value;
+    let catMod = listaCategoria.find(element => element.nombre == catProd.value)
     let stockMod = stockProd.value;
     let linkMod = linkProd.value;
     let etiqMod = etiqProd.value;
 
-    actualizaInfo(nomMod, descMod, precMod, catMod, stockMod, etiqMod, linkMod)
+    actualizaInfo(nomMod, descMod, precMod, catMod.id, stockMod, etiqMod, linkMod)
    
 });
 
@@ -80,11 +79,49 @@ async function actualizaInfo(nomMod, descMod, precMod, catMod, stockMod, etiqMod
 }
 
 function actualizarMod(){
-    const miObjetoGuardado = localStorage.getItem("modificarEste")
+    const miObjetoGuardado = localStorage.getItem("modificarEste");
     const miObjeto = JSON.parse(miObjetoGuardado);
     console.log(miObjeto);
-    let textoNombre = document.getElementById("esto1")
-    let textoProducto = document.getElementById("esto2");
+    let textoNombre = document.getElementById("nomProd")
+    let descProducto = document.getElementById("descProd");
+    let precio = document.getElementById("precProd");
+    let stock = document.getElementById("stockProd");
+    let etiqueta = document.getElementById("etiqProd");
+    let link = document.getElementById("linkProd");
+    let categoria = document.getElementById("catProd");
     textoNombre.value = miObjeto.nombre;
-    textoProducto.value = miObjeto.descripcion;
+    descProducto.value = miObjeto.descripcion;
+    precio.value = miObjeto.precio;
+    stock.value = miObjeto.stock;
+    etiqueta.value = miObjeto.etiqueta;
+    link.value = miObjeto.link;
+    categoria.value = miObjeto.idCategoria;
 }
+
+const catFetch = fetch(urlCategoria, {
+    method:"GET",
+    headers:{
+        "Content-Type": "application/json"
+    },
+})
+
+let listaCategoria = []
+
+
+async function prepCategoria() {
+    const respuesta = await catFetch;
+    data = await respuesta.json();
+    // console.log(data);
+    data.forEach(elem => {
+        listaCategoria.push(elem);
+    })
+    listaCategoria.forEach((opcion) => {
+        const elemOpcion = document.createElement("option");
+        elemOpcion.id = opcion.id;
+        elemOpcion.value = opcion.nombre;
+        elemOpcion.text = opcion.nombre;
+        document.getElementById("catProd").appendChild(elemOpcion);
+    });
+
+}
+prepCategoria();
