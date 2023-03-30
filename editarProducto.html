@@ -5,9 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Producto</title>
-    <link rel="stylesheet" href="./estilos.css">
+    
 </head>
 <body>
+    <script>
+        window.addEventListener('load', function() {
+        console.log('La página ha cargado completamente');
+        actualizarMod();
+        });
+    </script>
     <!-- nav -->
     <header class="main-header">
         <a href="./index.html"><img  class="header__logo" src="./img/techmarket-01.png" width="250" alt="Logo"></a>
@@ -36,7 +42,7 @@
         <img src=" " alt="imgProducto" class="imgProductoP">
         
         <label for="">Nombre: 
-            <input type="text" id="nomProd">
+            <input type="text" id="esto1" id="nomProd">
         </label>
         <label for=""> Descripcion:
             <input type="text" id="descProd">
@@ -63,7 +69,7 @@
         
     </form>
 
-    <script src="./scripts/editarProducto.js">  </script>
-
-</body>
+    <script src="./scripts/editarProducto.js">  </script>    <script src="scripts/productos.js"></script>
+        
+    </body>
 </html>

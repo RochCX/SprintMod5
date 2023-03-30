@@ -8,7 +8,7 @@ function validarForm() {
     var nombre=document.getElementById("nombre");
     var descripcion=document.getElementById("descripcion");
     var precio=document.getElementById("precio");
-    var categoria=document.getElementById ("categoria");
+    var categoria=document.getElementById ("selectCat");
     var stock=document.getElementById ("stock");
     var imagen=document.getElementById ("imagen");
     var etiqueta=document.getElementById("etiqueta");
@@ -20,18 +20,6 @@ function validarForm() {
     }else if (!descripcion.value){
         alert("El campo descripción es requerido");
         descripcion.focus();
-        verifica=false;
-    }else if (!precio.value){
-        alert("El campo precio es requerido");
-        precio.focus();
-        verifica=false;
-    }else if (!categoria.value){
-        alert("El campo categoria es requerido");
-        categoria.focus();
-        verifica=false;
-    }else if (!stock.value){
-        alert("El campo stock es requerido");
-        stock.focus();
         verifica=false;
     }else if (!imagen.value){
         alert("El campo imagen es requerido");

@@ -25,7 +25,9 @@
     </div>
     <div>
         <label for="categoria">Categoria</label>
-        <input type="text" name="categoria" id="categoria" placeholder="Selecciona la categoria del producto" required>
+        <select name="opciones" id="selectCat">
+            <option value="">Selecciona una categoria...</option>
+        </select><!--O podemos dejar la lista desplegable de categorias disponible :O-->
     </div>
     <div>
         <label for="stock">Stock</label>
@@ -43,7 +45,7 @@
     <a href="./productos.html" class="btnIraProductos">Cancelar y volver</a> 
     </form>
     </div>
-    <script src="postProducto.js"></script>
-    <script src="validacionFormulario.js"></script>
+    <script src="scripts/agregarProductos.js"></script>
+    <script src="scripts/validacionFormulario.js"></script>
 </body>
 </html>
