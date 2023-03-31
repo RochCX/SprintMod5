@@ -12,6 +12,16 @@ let categoriaProductos = [{}]
 let idProducto;
 
 // Crea cards de los productos obtenidos de la API
+function recargador() {
+    let check = localStorage.getItem('recarga');
+    if (check == null) {
+        return;
+    } else if(check == 0){
+        localStorage.removeItem('recarga');
+        location.reload();
+    }
+}
+recargador();
 
 async function fetchMethod(){
     let respuesta = await prodFetch;
