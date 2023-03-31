@@ -114,7 +114,7 @@ async function agregarProducto(){
     
       setTimeout(function(){
         localStorage.setItem("recarga", 0);
-        window.location.href = "./productos.html"; }, 1500);    
+        window.location.href = "./productos.html"; }, 1000);    
         
 }
 
