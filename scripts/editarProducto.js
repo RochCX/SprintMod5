@@ -78,9 +78,14 @@ async function actualizaInfo(nomMod, descMod, precMod, catMod, stockMod, etiqMod
             "idSucursal": 9 
         })
     })
+    //Recarga la página de productos
+    
+    setTimeout(function(){
+        localStorage.setItem("recarga", 0);
+        window.location.href = "./productos.html"; }, 1500); 
 }
 
-function actualizarMod(){
+setTimeout(function actualizarMod(){
     const miObjetoGuardado = localStorage.getItem("modificarEste");
     const miObjeto = JSON.parse(miObjetoGuardado);
     console.log(miObjeto);
@@ -97,8 +102,12 @@ function actualizarMod(){
     stock.value = miObjeto.stock;
     etiqueta.value = miObjeto.etiqueta;
     link.value = miObjeto.link;
-    categoria.value = miObjeto.idCategoria;
-}
+    categoria.value = miObjeto.nombre;
+    let beb = listaCategoria.find(ele => ele.id === miObjeto.idCategoria);
+    console.log(beb)
+    categoria.value = beb.nombre
+    
+},2000)
 
 const catFetch = fetch(urlCategoria, {
     method:"GET",
