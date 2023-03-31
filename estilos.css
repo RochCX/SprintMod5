@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+li .active{
+    color: #05d481;
+}
+
 body{
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -94,6 +98,11 @@ margin-left: 4em;
 	content: '|';
 	padding: 0 0.25em 0 0.5em;
 }
+
+.crumbs__item.last{
+    color: #05d481;
+}
+
 .crumbs__item.last::after{
 	content: '';
 	padding: 0 0.25em 0 0.5em;
@@ -264,7 +273,7 @@ label{
     font-size: 1.2em;
 }
 
-input,#selectCat{
+input,#selectCat, .selectCat{
     /* max-width: 15em; */
     background-color: #05d48128;
     margin:.3em;
@@ -275,7 +284,12 @@ input,#selectCat{
     border-radius: 10px;
     border-style: none;
 }
-#selectCat option{
+
+#search-input{
+    width: 25em;
+}
+
+#selectCat option, .selectCat option{
 color: #444444;
 }
 

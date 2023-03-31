@@ -1,8 +1,11 @@
+// Variables
 let urlProducto = "https://slifer.bsite.net/td-producto"
 let urlCategoria = "https://slifer.bsite.net/td-categoria"
 let listaCategoria = [];
 let nombresCategoria = [];
 let nuevoItem;
+
+// Obtiene categorías de la API
 
 const catFetch = fetch(urlCategoria, {
     method:"GET",
@@ -11,6 +14,7 @@ const catFetch = fetch(urlCategoria, {
     },
 })
 
+//Crea opciones de un input select con los nombres de categorías
 
 async function prepCategoria() {
     const respuesta = await catFetch;
@@ -26,21 +30,15 @@ async function prepCategoria() {
         elemOpcion.text = opcion.nombre;
         document.getElementById("selectCat").appendChild(elemOpcion);
     });
-
 }
 prepCategoria();
 
-// const prodFetch = fetch("https://slifer.bsite.net/td-producto",{
-//     method:"GET",
-//     headers:{
-//         "Content-Type":"application/json"
-//     },
-// })
 
 const formularioAgregar = document.getElementById("formulario");
 
+// Validaciones para formulario de agregar productos
+
 formularioAgregar.addEventListener("submit", async (event) =>{
-    // anteponer un validador
     event.preventDefault();
     await prepCategoria;
     const inputNombre = document.getElementById("nombre").value;
@@ -51,7 +49,6 @@ formularioAgregar.addEventListener("submit", async (event) =>{
     const inputCategoria = document.getElementById("selectCat");
     const inputStock = document.getElementById("stock").value;
     const inputImagen = document.getElementById("imagen").value;
-    // nose como verificar la imagen
     const inputEtiqueta = document.getElementById("etiqueta").value;
     const largoEtiqueta = inputEtiqueta.trim().length;
     // procesos verificantes
@@ -78,6 +75,8 @@ formularioAgregar.addEventListener("submit", async (event) =>{
     agregarProducto();
 });
 
+// Agrega producto en la API 
+
 async function agregarProducto(){
     let obj = {
         "id": 0,
@@ -90,7 +89,7 @@ async function agregarProducto(){
         "idCategoria": nuevoItem.idCategoria,
         "idSucursal": nuevoItem.idSucursal
       }
-      console.log(obj)
+    //   console.log(obj)
     await fetch(urlProducto, {
         method: 'POST',   
         mode: 'cors', 
@@ -111,7 +110,15 @@ async function agregarProducto(){
             "idSucursal": nuevoItem.idSucursal
           })
     });
+      //Recarga la página de productos
+    
+      setTimeout(function(){
+        window.location.href = "./productos.html"; }, 1500);    
+        
 }
+
+// Clase producto en ES6
+
 class Producto {
     constructor(nombre, descripcion, precio, idCategoria, stock, link, etiqueta, idSucursal, id){
             this.nombre = nombre;
@@ -123,4 +130,4 @@ class Producto {
             this.link = link;
             this.idSucursal = idSucursal;
             this.id = id;
-            }}
+}}
