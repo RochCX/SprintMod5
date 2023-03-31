@@ -50,8 +50,10 @@ btnEditProd.addEventListener('click',(e) => {
     let linkMod = linkProd.value;
     let etiqMod = etiqProd.value;
 
-    actualizaInfo(nomMod, descMod, precMod, catMod.id, stockMod, etiqMod, linkMod)
-   
+    actualizaInfo(nomMod, descMod, precMod, catMod.id, stockMod, etiqMod, linkMod);
+    alert("Cambio satisfactorio!");
+
+    
 });
 
 //modificar productos
