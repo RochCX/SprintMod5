@@ -113,6 +113,7 @@ async function agregarProducto(){
       //Recarga la página de productos
     
       setTimeout(function(){
+        localStorage.setItem("recarga", 0);
         window.location.href = "./productos.html"; }, 1500);    
         
 }
